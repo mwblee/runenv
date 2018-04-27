@@ -3,7 +3,7 @@ build_path = build
 build_tool = runtime-container.DONE
 #git_commit ?= $(shell git log --pretty=oneline -n 1 -- ../gatk4 ../spark-and-maven | cut -f1 -d " ")
 name = bmwlee/usyd_runenv
-tag = 0.2
+tag = 0.4
 
 # Steps
 build: ${build_tool}
@@ -20,8 +20,7 @@ clean:
 #
 #test: build
 #
-push: build
-        # Requires ~/.dockercfg
-        docker push ${name}:${tag}
-        docker push ${name}:latest
+push:
+	docker push ${name}:${tag}
+	docker push ${name}:latest
 
